@@ -15,12 +15,12 @@ public class ShellSortDemo
         long start = System.nanoTime();
         insertionSort(arr1);
         long end = System.nanoTime();
-        System.out.println("Insertion Sort time: " + (end - start) / 1e6 + " ms");
+        System.out.println("At array size " + size + ", Insertion Sort took " + (end - start) / 1e6 + " ms");
 
         start = System.nanoTime();
         ShellSort(arr2);
         end = System.nanoTime();
-        System.out.println("Shell Sort time: " + (end - start) / 1e6 + " ms");
+        System.out.println("At array size " + size + ", Shell Sort took " + (end - start) / 1e6 + " ms");
     }
 
     //  Standard Insertion Sort done by AI. I think this makes sense with the key and such.
@@ -36,11 +36,11 @@ public class ShellSortDemo
                 arr[j + 1] = arr[j];
                 j--;
             }
-            arr[j + 1] = key;  // Insert key into correct position
+            arr[j + 1] = key;
         }
     }
 
-    //  Shell Sort: Manual intervals version as seen by AI
+    //  Shell Sort: Manual intervals version as seen by AI documentation with the instruction help
     public static int[] ShellSort(int[] arr, int[] intervals)
     {
         for (int gap : intervals)
@@ -50,7 +50,7 @@ public class ShellSortDemo
         return arr;
     }
 
-    //  Shell Sort: Automatic intervals version
+    //  Shell Sort: Automatic intervals version with instructions
     public static int[] ShellSort(int[] arr)
     {
         int n = arr.length;
@@ -89,7 +89,6 @@ public class ShellSortDemo
                 j -= gap;
             }
 
-            // Place element in its correct position within this subarray
             arr[j] = temp;
         }
     }
